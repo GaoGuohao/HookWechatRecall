@@ -17,9 +17,10 @@ function hookRecallFunction() {
     
     // 自定义逻辑
     showAlert();
-    
-    // 调用原始方法
-    oldImpl(handle, selector, arg1, arg2);
+    console.log("拦截掉一条消息撤回");
+
+    // 调用原始方法（如果解开，会撤回成功）
+    // oldImpl(handle, selector, arg1, arg2);
   });
 }
 
@@ -28,9 +29,9 @@ function showAlert() {
   const { NSAlert } = ObjC.classes;
   ObjC.schedule(ObjC.mainQueue, function () {
     var alert = NSAlert.alloc().init();
-    alert.setMessageText_('搞定微信');
-    alert.setInformativeText_('有消息撤回');
-    alert.addButtonWithTitle_('确定');
+    alert.setMessageText_('FridaDemo');
+    alert.setInformativeText_('监控到有消息撤回');
+    alert.addButtonWithTitle_('我知道了');
     alert.runModal();
   })
 }
