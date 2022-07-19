@@ -9,7 +9,7 @@ frida -p <微信进程id> -l frida_js.ts
 ```
 <p>
 
-<微信进程id>可以通过`frida-ps` 名称查看:
+<微信进程id>可以通过`frida-ps` 名称查看:<br>
 
 ```shell
 frida-ps | grep 微信
